@@ -11,8 +11,10 @@ STOCK_MODNAME="mac80211_hwsim"
 # ----------------------------------------------------------------------
 
 sudo apt update -y
-sudo apt install linux-headers-$(uname -r) -y
-sudo apt-get install -y gcc-12 g++-12 build-essential
+if [ ! -d "/usr/src/linux-headers-$(uname -r)" ] && [ ! -d "/lib/modules/$(uname -r)/build" ]; then
+  sudo apt install -y "linux-headers-$(uname -r)" || true
+fi
+sudo apt-get install -y gcc-13 g++-13 build-essential || sudo apt-get install -y gcc g++ build-essential
 
 ### ---- Download the code and parche ----------------------------------
 bash patch80211.sh
