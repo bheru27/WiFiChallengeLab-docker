@@ -86,7 +86,7 @@ Clone the repository and set up Docker to manage Access Points (APs), clients, a
 ```bash
 git clone https://github.com/r4ulcl/WiFiChallengeLab-docker
 cd WiFiChallengeLab-docker
-docker compose --file docker-compose.yml up -d
+docker compose --file docker-compose-minimal.yml up -d
 ```
 
 ### Create your own VM using vagrant
